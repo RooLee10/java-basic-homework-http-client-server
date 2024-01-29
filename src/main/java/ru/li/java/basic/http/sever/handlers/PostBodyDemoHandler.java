@@ -24,10 +24,7 @@ public class PostBodyDemoHandler implements RequestHandler {
         Product product = gson.fromJson(httpRequest.getBody(), Product.class);
         logger.info("Создан объект: " + product);
 
-        String body = gson.toJson(product);
-        logger.info("Объект сконвертирован в JSON: " + body);
-
-        String response = "HTTP/1.1 200 OK\r\n\r\n" + body;
+        String response = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n<html><body><h1>Hello World!</h1></body></html>";
         out.write(response.getBytes(StandardCharsets.UTF_8));
         logger.info("Отправлен ответ: " + response);
     }

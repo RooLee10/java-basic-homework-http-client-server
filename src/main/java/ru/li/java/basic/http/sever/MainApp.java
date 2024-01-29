@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class MainApp {
     // Домашнее задание:
-    // - Добавить логирование
-    // - Добавить обработку запросов в параллельных потоках
+    // - Реализуйте возможность указания статус кода ответа (404)
+    // - Реализуйте возможность добавления в тело http ответа JSON объекта
     public static void main(String[] args) {
         System.out.println(Arrays.toString(args));
         HttpServer httpServer = new HttpServer(Integer.parseInt(String.valueOf(System.getProperties().getOrDefault("port", 8189))));

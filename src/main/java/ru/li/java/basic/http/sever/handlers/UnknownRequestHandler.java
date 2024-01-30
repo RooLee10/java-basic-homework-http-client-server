@@ -17,7 +17,7 @@ public class UnknownRequestHandler implements RequestHandler {
 
     @Override
     public void execute(HttpRequest httpRequest, OutputStream out) throws IOException {
-        String response = "HTTP/1.1 404";
+        String response = "HTTP/1.1 404 Not found";
         out.write(response.getBytes(StandardCharsets.UTF_8));
         logger.info("Отправлен ответ: " + response);
     }

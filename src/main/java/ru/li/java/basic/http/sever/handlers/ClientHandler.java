@@ -24,18 +24,14 @@ public class ClientHandler {
         this.out = socket.getOutputStream();
         this.logger = LogManager.getLogger(ClientHandler.class.getName());
 
-        new Thread(() -> {
-            try {
-                logger.info("Запущен отдельный поток на исполнение");
-                processRequest();
-            } catch (IOException e) {
-                logger.error(e.getMessage());
-            } finally {
-                disconnect();
-                logger.info("Отключился клиент");
-            }
-
-        }).start();
+        try {
+            processRequest();
+        } catch (IOException e) {
+            logger.error(e.getMessage());
+        } finally {
+            disconnect();
+            logger.info("Отключился клиент");
+        }
     }
 
     private void processRequest() throws IOException {
